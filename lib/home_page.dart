@@ -76,10 +76,15 @@ class _HomePageState extends State<HomePage> {
       );
     }
     else {
-      ResultMessage(
-          message: 'Sorry Try Again',
-          onTap: goBackToQuestion,
-          icon: const Icon(Icons.rotate_90_degrees_ccw, color: Colors.white,),
+      showDialog(
+          context: context,
+          builder: (context) {
+            return ResultMessage(
+              message: 'Sorry Try Again',
+              onTap: goToNextQuestion,
+              icon: const Icon(Icons.rotate_left, color: Colors.white,),
+            );
+          }
       );
     }
   }
@@ -106,7 +111,6 @@ class _HomePageState extends State<HomePage> {
   void goBackToQuestion(){
     // dismiss alert dialog
     Navigator.of(context).pop();
-
   }
 
   @override
